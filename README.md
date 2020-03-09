@@ -17,6 +17,6 @@ This prefab is not instanced and put into a room yet by PUN.<br/>
 At the current moment it only exists in a test room, where I am creating the movement and other mechanics<br/>
 ![The player prefab running](Screenshots/Running.png)
 The player is also able to jump, given that they are already running<br/>
-![The player begins the jump](Screenshots/Jump1)
-![The player mid jump](Screenshots/Jump2)
-![The player lands the jump](Screenshots/Jump3)
+![The player begins the jump](Screenshots/Jump1.png)
+![The player mid jump](Screenshots/Jump2.png)
+![The player lands the jump](Screenshots/Jump3.png)
