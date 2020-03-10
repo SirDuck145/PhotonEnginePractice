@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+using Photon.Pun;
+
 
 namespace Com.LunacyIncorporated.Landslaught
 {
-    public class PlayerAnimatorManager : MonoBehaviour
+    public class PlayerAnimatorManager : MonoBehaviourPun
     {
 
         #region Private Fields
@@ -34,6 +36,13 @@ namespace Com.LunacyIncorporated.Landslaught
         //Update is called once per frame
         private void Update()
         {
+            //If the view is not the players, and they are connected, do nothing
+            if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+            {
+                return;
+            }
+
+
             //Handles no animator
             if (!animator)
             {

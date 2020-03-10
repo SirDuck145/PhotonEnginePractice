@@ -12,6 +12,19 @@ namespace Com.LunacyIncorporated.Landslaught
 {
     public class GameManager : MonoBehaviourPunCallbacks
     {
+
+        #region Public Fields
+
+
+        public static GameManager Instance;
+
+        [Tooltip("The prefab used to represent the player")]
+        public GameObject playerPrefab;
+
+
+        #endregion
+
+
         #region Photon Callbacks
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -61,7 +74,30 @@ namespace Com.LunacyIncorporated.Landslaught
 
         #endregion
 
-        #region Public Methods
+        #region Private Methods
+
+        private void Start()
+        {
+            Instance = this;
+
+            if (playerPrefab == null)
+            {
+                Debug.LogError("<Color=red><a>Missing</a></Color> playerPrefab reference. Please set one up in GameObject 'Game Manager'", this);
+            }
+            else
+            {
+                if (PlayerManager.LocalPlayerInstance == null)
+                {
+                    Debug.LogFormat("We are instantiating localplayer from {0}", SceneManagerHelper.ActiveSceneName);
+                    // We are in a room. spawn a character for the local player.
+                    PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+                }
+                else
+                {
+                    Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
+                }
+            }
+        }
 
         void LoadArena()
         {
