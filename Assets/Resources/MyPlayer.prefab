@@ -854,8 +854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c23d221b825e141a98a7449278fd77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 4
-  height: 2.5
+  distance: 5
+  height: 3
   heightSmoothingLag: 0.3
   centerOffset: {x: 0, y: 0, z: 0}
   followOnStart: 0
@@ -897,6 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 1
   beams: {fileID: 8104439739912946573}
+  beamCollider: {fileID: 3047736395356339829}
 --- !u!114 &1833993871
 MonoBehaviour:
   m_ObjectHideFlags: 0

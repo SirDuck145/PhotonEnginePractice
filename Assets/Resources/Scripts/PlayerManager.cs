@@ -27,6 +27,9 @@ namespace Com.LunacyIncorporated.Landslaught
         [Tooltip("The beams GameObject to control")]
         [SerializeField]
         private GameObject beams;
+        [Tooltip("The beam collider itself")]
+        [SerializeField]
+        private Collider beamCollider;
         //True when the user is firing
         bool IsFiring;
 
@@ -135,7 +138,11 @@ namespace Com.LunacyIncorporated.Landslaught
                 return;
             }
 
-            Health -= 0.1f;
+            
+            if (beamCollider != other)
+            {
+                Health -= 0.1f;
+            }
         }
 
         /// <summary>
